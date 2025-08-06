@@ -18,16 +18,19 @@ def sap_login():
     username = data['username']
     password = data['password']
 
-    # return print(username, password)
+    print(username)
+    print(password)
 
-    try:
-        conn = connect_sap(username, password)
-        conn.ping()
-        print("[SUCCESS] Login sukses!")
-        return jsonify({'status': 'connected', 'username' : username, 'password' : password})
-    except Exception as e:
-        print("[ERROR] SAP Login failed:", str(e))
-        return jsonify({'error': str(e)}), 401
+    # # return print(username, password)
+
+    # try:
+    #     conn = connect_sap(username, password)
+    #     conn.ping()
+    #     print("[SUCCESS] Login sukses!")
+    #     return jsonify({'status': 'connected', 'username' : username, 'password' : password})
+    # except Exception as e:
+    #     print("[ERROR] SAP Login failed:", str(e))
+    #     return jsonify({'error': str(e)}), 401
     
 @sap_bp.route('/api/send_usage_decision', methods=['POST'])
 def send_usage_decision():
